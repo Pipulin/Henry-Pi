@@ -75,4 +75,23 @@ router.get('/pokemons', async(req, res) =>{
 })
 
 
+router.get('/types', async (req,res) => {
+    const typesPokemon = await axios.get('https://pokeapi.co/api/v2/pokemon');
+    const tipo = typesPokemon.data.results.map(el => el.name)
+   const pokeEach = tipo.map(el => {
+        for (let i= 0; i< el.length; i++)return el[i]})
+    pokeEach.forEach(el => {        
+        Type.findOrCreate({
+            where: {name: el}
+        }) 
+    })
+
+    const pokemonsAll = await Type.findAll();    
+    res.send(pokemonsAll)
+  
+
+})
+
+
+
 module.exports = router;
