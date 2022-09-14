@@ -76,20 +76,63 @@ router.get('/pokemons', async(req, res) =>{
 
 
 router.get('/types', async (req,res) => {
-    const typesPokemon = await axios.get('https://pokeapi.co/api/v2/pokemon');
+    const typesPokemon = await axios.get('https://pokeapi.co/api/v2/type');
     const tipo = typesPokemon.data.results.map(el => el.name)
-   const pokeEach = tipo.map(el => {
+    console.log(tipo)
+   /* const pokeEach = tipo.map(el => {
         for (let i= 0; i< el.length; i++)return el[i]})
-    pokeEach.forEach(el => {        
+        console.log(pokeEach) */// esta funcion me taria solo la primer letra de cada tipo
+    tipo.forEach(el => {        
         Type.findOrCreate({
-            where: {name: el}
+            where: {name: el}// donde el nombre es igual al elemento 
         }) 
-    })
+    }) 
 
     const pokemonsAll = await Type.findAll();    
     res.send(pokemonsAll)
-  
 
+
+
+  
+router.get('/pokemons/:id', async(req, res) =>{
+        const id = req.params.id;
+        const pokemonesTotales = await getAllPokemons()
+        if(id){
+            let pokemonsId = await pokemonesTotales.filter(el => el.id == id)
+            pokemonsId.length?
+            res.status(200).json(pokemonsId):
+            res.status(404).send('personaje no encontrado')
+        }
+    })
+
+})
+
+
+
+router.post('/pokemons', async(req, res) =>{
+    let { name, img, life, strength, defense, speed, height, weight, types, createdDB } = req.body; //info que me llega por body    
+    
+    
+    //creammos el personaje
+    let pokemonCreated = await Pokemon.create({
+        name, 
+        img, 
+        life, 
+        strength, 
+        defense, 
+        speed, 
+        height, 
+        weight, 
+        types, 
+        createdDB,
+        
+    })
+    //me traigo la info del models Type
+    let typeDb = await Type.findAll({
+        where: {name: types}
+    })
+    pokemonCreated.addTypes(typeDb)
+    res.send('Personaje creado con Exito!!')
 })
 
 
