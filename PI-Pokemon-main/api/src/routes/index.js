@@ -15,6 +15,7 @@ const router = Router();
 const getApiInfo = async() =>{
 try {    
     const apiResults = await axios.get('https://pokeapi.co/api/v2/pokemon')
+    
     const apiNext = await axios.get(apiResults.data.next)
     const allPokemons = apiResults.data.results.concat(apiNext.data.results);
     for (let p of allPokemons) {
@@ -90,27 +91,14 @@ router.get('/types', async (req,res) => {
 
     const pokemonsAll = await Type.findAll();    
     res.send(pokemonsAll)
-
-
-
   
-router.get('/pokemons/:id', async(req, res) =>{
-        const id = req.params.id;
-        const pokemonesTotales = await getAllPokemons()
-        if(id){
-            let pokemonsId = await pokemonesTotales.filter(el => el.id == id)
-            pokemonsId.length?
-            res.status(200).json(pokemonsId):
-            res.status(404).send('personaje no encontrado')
-        }
-    })
 
 })
 
 
-
 router.post('/pokemons', async(req, res) =>{
-    let { name, img, life, strength, defense, speed, height, weight, types, createdDB } = req.body; //info que me llega por body    
+    let { name, img, life, strength, defense, speed, height, weight, types, createdDB } = req.body; //info que me llega por body
+    
     
     
     //creammos el personaje
@@ -135,6 +123,15 @@ router.post('/pokemons', async(req, res) =>{
     res.send('Personaje creado con Exito!!')
 })
 
-
+router.get('/pokemons/:id', async(req, res) =>{
+    const id = req.params.id;
+    const pokemonesTotales = await getAllPokemons()
+    if(id){
+        let pokemonsId = await pokemonesTotales.filter(el => el.id == id)
+        pokemonsId.length?
+        res.status(200).json(pokemonsId):
+        res.status(404).send('personaje no encontrado')
+    }
+})
 
 module.exports = router;
