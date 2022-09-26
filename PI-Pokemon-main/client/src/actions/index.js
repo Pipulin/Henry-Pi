@@ -11,4 +11,36 @@ export function getApiInfo(){
     }
 
 }
+export function filterPokemonesByType(payload){
+    console.log(payload)
+    return{
+        type: 'FILTER_BY_TYPES',
+        payload
+    } 
+   
+}
+
+
+export function filterCreated(payload){//payload es el value de la opcion que elegimos en el menu select
+    return{
+        type: 'FILTER_CREATED',
+        payload
+    }
+
+}
+
+export function filterAzZa(payload){
+    return{
+        type: 'FILTER_AZZA',
+        payload
+    }
+}
+
+export function filterAttack(payload){
+    return{
+        type: 'FILTER_ATACK',
+        payload
+    }
+} 
+
 

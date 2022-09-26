@@ -28,7 +28,7 @@ try {
       p.speed = url.data.stats[5].base_stat;
       p.height = url.data.height;
       p.weight = url.data.weight;
-      p.types = url.data.types.map((el) => el.type.name);
+      p.type = url.data.types.map((el) => el.type.name);
     }
     return allPokemons;
   } catch (error) {
