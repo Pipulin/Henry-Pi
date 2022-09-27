@@ -10,6 +10,7 @@ import {getApiInfo,
 import {Link} from 'react-router-dom';
 import Card from './cards'
 import Paginado from './paginado';
+import SearchBar from './SearchBar';
 
 
 export default function Home (){
@@ -64,13 +65,16 @@ function handleAtack(e){
 }
 
     
-    return (                      
+    return (    
+                          
         <div>
+            <SearchBar/>  
             <Link to = '/poke'>Crear Pokemon</Link>
             <h1>Pokemons</h1>
             <button onClick = {e => {handleClick(e)}}>
                 Volver a cargar los Pokemones
             </button>
+            
         <div>
             <select onChange={(e) =>{ handleFilterAzZa(e)}} >
                 <option value='asc'> Ascendente</option>
@@ -136,7 +140,8 @@ function handleAtack(e){
                     </div>             
                );
             })
-        }                                 
+        }     
+                                  
             </div>
         </div>           
     )           

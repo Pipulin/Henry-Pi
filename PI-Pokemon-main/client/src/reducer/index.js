@@ -15,6 +15,19 @@ const initialState = {
                 allPokemones:action.payload
             }
 
+        case 'GET_NAME_POKEMON':          
+            let nombres =
+        action.payload === ""
+          ? state.allPokemones
+          : state.pokemones.filter((e) =>
+              e.name.toLowerCase().includes(action.payload.toLowerCase())
+            );
+      return {
+        ...state,
+        pokemones: nombres
+      };
+
+
         case 'FILTER_BY_TYPES':
             const todosPokemones= state.allPokemones
             const typesFiltered = action.payload === "type"? todosPokemones : todosPokemones.filter(el=>// el.type === action.payload

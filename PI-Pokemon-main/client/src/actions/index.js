@@ -11,8 +11,17 @@ export function getApiInfo(){
     }
 
 }
+
+export function getNamePokemones(name){
+    return {
+        type: "GET_NAME_POKEMON",
+        payload: name,
+      };
+    }
+
+
 export function filterPokemonesByType(payload){
-    console.log(payload)
+    
     return{
         type: 'FILTER_BY_TYPES',
         payload
