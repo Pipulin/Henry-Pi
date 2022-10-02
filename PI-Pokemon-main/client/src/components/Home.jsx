@@ -64,14 +64,16 @@ function handleAtack(e){
     setOrden(`Ordenando ${e.target.value}`)
 }
 
+
     
     return (    
                           
-        <div>
+        <div id='inicio'>
             <SearchBar/>  
             <Link to = '/poke'>Crear Pokemon</Link>
             <h1>Pokemons</h1>
-            <button onClick = {e => {handleClick(e)}}>
+            
+            <button onClick = {(e) => {handleClick(e)}}>
                 Volver a cargar los Pokemones
             </button>
             
@@ -127,16 +129,14 @@ function handleAtack(e){
         {
             currentPokemons?.map( (el) =>{           
               return(
-                    <div>
-                   <Link key={el.id} className='cartas' to={'/home/' + el.id}> 
-                        <Card className='card'
-                       // key={el.id} saco la prop para que no me joda la consola
+                    <div>                       
+                        <Card className='card'                     
                         id={el.id}
                         name={el.name} 
                         img={el.img} 
-                        type={ el.created? el.type.map(t=>' '+ t.name.charAt(0).toUpperCase()+ t.name.slice(1)+ ' '): el.type} 
+                        type={el.types} 
                         />
-                    </Link>  
+                     
                     </div>             
                );
             })

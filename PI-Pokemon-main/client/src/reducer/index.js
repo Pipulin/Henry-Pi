@@ -2,11 +2,14 @@
 const initialState = {
     pokemones : [],
     allPokemones:[],
+    types:[],
+    detail:[]
+
 }
 
 
  function rootReducer(state = initialState, action){
-    
+   
     switch(action.type) {
         case 'GET_POKEMONS':          
             return {
@@ -22,10 +25,21 @@ const initialState = {
           : state.pokemones.filter((e) =>
               e.name.toLowerCase().includes(action.payload.toLowerCase())
             );
-      return {
+         return {
         ...state,
         pokemones: nombres
-      };
+        };
+
+        case 'GET_TYPES':
+            return{
+                ...state,
+                types: action.payload
+            }
+
+        case 'POST_POKEMON':
+            return{
+                ...state,
+            }
 
 
         case 'FILTER_BY_TYPES':
@@ -50,7 +64,7 @@ const initialState = {
         
         case 'FILTER_CREATED':
             const todosPokemones2= state.allPokemones
-            const createdFilter = action.payload ==='created'? todosPokemones2.filter(el => el.createdDB): todosPokemones2.filter(el=> !el.createdDB)
+            const createdFilter = action.payload === 'created'? todosPokemones2.filter(el => el.createdDB): todosPokemones2.filter(el=> !el.createdDB)
             
             return{
                 ...state,
@@ -101,8 +115,20 @@ const initialState = {
                 return 0;
 
             }) 
-
-
+        case 'GET_DETAIL':
+            
+            return {
+              ...state,
+              detail: action.payload 
+            }
+        
+        case 'RESET':
+            return{
+                ...state,
+                pokemones: state.allPokemones,
+            }
+        
+       
             
             default:
                 return state;

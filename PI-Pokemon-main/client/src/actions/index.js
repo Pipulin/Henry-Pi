@@ -12,6 +12,41 @@ export function getApiInfo(){
 
 }
 
+export function getTypes(){
+    return async function(dispatch){
+        var json = await axios.get('http://localhost:3001/types');
+    return dispatch({
+        type: 'GET_TYPES',
+        payload: json.data
+    })
+    };
+}
+
+export function getDetail(id){
+    
+    return async function(dispatch){  
+         
+    var json = await axios.get('http://localhost:3001/pokemons/' +id)
+    console.dir(json.data)
+    return dispatch({
+                type: 'GET_DETAIL',
+                payload: json.data
+        })         
+    }
+}
+
+
+
+export function postPokemones(payload){
+    return async function(){
+        const data = await axios.post("http://localhost:3001/pokemons", payload);
+        console.log(data)
+        return data;
+    };
+
+}
+
+
 export function getNamePokemones(name){
     return {
         type: "GET_NAME_POKEMON",
@@ -51,5 +86,13 @@ export function filterAttack(payload){
         payload
     }
 } 
+
+export function Reset(payload){
+    return{
+        type: 'RESET',
+        payload
+    };
+}
+
 
 

@@ -125,12 +125,16 @@ router.post('/pokemons', async(req, res) =>{
 router.get('/pokemons/:id', async(req, res) =>{
     const id = req.params.id;
     const pokemonesTotales = await getAllPokemons()
+    try{
     if(id){
-        let pokemonsId = await pokemonesTotales.filter(el => el.id == id)
+        let pokemonsId = pokemonesTotales.filter(el => el.id == id)
         pokemonsId.length?
         res.status(200).json(pokemonsId):
         res.status(404).send('personaje no encontrado')
     }
+}catch(error){
+    res.status(400).send({error: error.message})
+}
 })
 
 module.exports = router;
