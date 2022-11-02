@@ -1,0 +1,92 @@
+body{
+    background-image: url('https://assets.pokemon.com//assets/cms2/img/misc/virtual-backgrounds/sword-shield/pokemon-in-the-wild.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.cardPoke{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 15px;
+    margin-bottom: 15px;
+}
+
+
+.btn-filter{
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    justify-content:space-evenly;  
+
+}
+.tituloHome{
+    margin-top: 25px;
+    position: relative;
+}
+.crear{
+   
+    text-decoration: none;
+    border: solid blue;
+    background-color:#FFD700;
+    border-radius: 5px;
+    font-family: monospace;
+      
+}
+
+.crear:hover {
+    border-color: #0000CD;
+    box-shadow: 0px 3px 20px 0px black;
+    transform: scale(1.2);
+    background-color: #FFD700;
+    color:#252422;
+    transition: all 0.3 ease-out;
+}
+
+.btn-reload{
+    
+    text-decoration: none;
+    border: solid blue;
+    background-color:#FFD700;
+    border-radius: 5px;
+    font-family: monospace;
+}
+
+.btn-reload:hover {
+    border-color: #0000CD;
+    box-shadow: 0px 3px 20px 0px black;    
+    background-color: #FFD700;
+    color:#252422;
+    transition: all 0.3 ease-out;
+}
+.cardPoke{
+    text-decoration: none;
+}
+.azzaFilter {
+    text-decoration: none;
+    padding: 3px;
+    background-color:blue;
+    border-radius: 5px;
+    font-family: monospace;
+}
+.updown{
+    text-decoration: none;    
+    background-color:blue;
+    border-radius: 5px;
+    font-family: monospace;
+}
+.creados{
+    text-decoration: none;    
+    background-color:blue;
+    border-radius: 5px;
+    font-family: monospace;
+}
+.tipefilter{
+    text-decoration: none;   
+    background-color:blue;
+    border-radius: 5px;
+    font-family: monospace;
+}

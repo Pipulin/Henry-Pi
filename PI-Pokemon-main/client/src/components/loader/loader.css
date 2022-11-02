@@ -1,0 +1,48 @@
+.container{
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.container .loader{
+    width: 100px;
+    height: 100px;
+    border: solid 5px #f6f9fa;
+    border-top: solid 5px #f11e1e;
+    border-radius: 50%;
+    animation: loader .8s linear infinite;
+    justify-content: center;
+    align-items: center;
+}
+@keyframes loader{
+    0%{
+        transform: rotate(0deg);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+
+.container .titulo{
+    font-size: medium;
+    font-family:'arial black';
+    position: absolute;
+    color: #040404;
+    top: 47%;
+    left: 50%;
+
+    transform: translate(-50%, -50%);
+    animation: titulo 1s alternate infinite ease-in-out;
+}
+
+@keyframes titulo{
+    0%{
+        opacity: .2;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+
+

@@ -4,6 +4,8 @@ import{useDispatch, useSelector} from 'react-redux';
 import {getDetail, Reset} from '../actions/index';
 import { useEffect} from 'react';
 import imagenPoke from '../components/pokebola.png'
+import Loading from './loader/loader';
+import './Detail.css'
 
 
 
@@ -24,45 +26,48 @@ useEffect(() =>{
 return(
 
   <div>
+    
       {
         detalle.length>0 ?
-        <div className='carDetail'>
-              <h1>{detalle[0].name.charAt(0).toUpperCase() + detalle[0].name.slice(1)}</h1>
+        
+        <div className='detallecard'>
+            
+              <h1 className='nombredetalle'>{detalle[0].name.charAt(0).toUpperCase() + detalle[0].name.slice(1)}</h1>
               <img src ={detalle[0].img|| imagenPoke}
+              className='imagendetalle'
               alt=''
               width='250px'
               height='250px'
               />
               <h2>TYPES: {detalle[0].type? detalle[0].type : detalle[0].types}</h2>             
-          <div>
-         </div>
-           <div className="skillDetail">
+          
+           <div className="skill">
               <h2>Life: {detalle[0].hp}</h2>
            </div>
-           <div className="skillDetail">
+           <div className="skill">
               <h2>Speed: {detalle[0].speed}</h2>
            </div>
-          <div className="skillDetail">
+          <div className="skill">
               <h2>Height: {detalle[0].height}</h2>
           </div>
-           <div className="skillDetail">
+           <div className="skill">
              <h2>Weight: {detalle[0].weight} </h2>
           </div>
-          <div className="skillDetail">
+          <div className="skill">
              <h2>Defense: {detalle[0].defense}</h2>
           </div>
+          <Link to="/home">
+            <button className="botonDetails" onClick={Reset}>Home
+            </button>
+          </Link>
         </div>
 
       :   <div>
-            <p>Loading...</p>
+            <Loading/>
           </div>
 
        }
-        <Link to="/home">
-        <button className="botonDetails" onClick={Reset}>
-                 Home
-        </button>
-        </Link>
+       
   </div>
 
 

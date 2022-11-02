@@ -1,0 +1,36 @@
+.imagendetalle{
+    border-radius: 35px;
+    background-color: rgba(201, 192, 192, 0.637);
+    border:5px solid rgba(201, 192, 192, 0.637);
+    
+    top: 55%;
+    left: 15%;
+    margin-right: 45%;
+    margin-left:5%;
+    width: 150px;
+    height: 150px;
+    float:right;
+}
+
+
+.detallecard{
+    border: solid;
+    background-color: rgba(201, 192, 192, 0.637);
+    border:5px solid rgba(201, 192, 192, 0.637);   
+    border-radius: 5%;
+   height: 150px;   
+    text-align:left;
+    margin-right: 0%;
+
+    
+   
+    
+} 
+
+.skill{
+    align-items:center;
+    text-align:left;
+    margin:auto;
+  
+ 
+}

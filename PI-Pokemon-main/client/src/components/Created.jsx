@@ -3,6 +3,7 @@ import {Link, useHistory} from 'react-router-dom';
 import {postPokemones, getTypes} from '../actions/index';
 import {useDispatch, useSelector} from 'react-redux';
 import { useState } from 'react';
+import './created.css'
 
 
 function validate(input){
@@ -109,12 +110,19 @@ export function PokeCreated(){
         dispatch(getTypes());
     }, [dispatch]);
     return(
-        <div>
-            <Link to='/home'><button>Home</button></Link>   
-            <h1>Crea tu Personaje</h1>
-            <form id='form' onSubmit={(e) => handleSubmit(e)}>
+        <div className='todoForm'>
+            <Link to='/home'>
+                <button className='home'>
+                    Home
+                </button>
+            </Link>   
+            <h1 className='titleForm'>Crea tu Personaje</h1>
+            <form 
+                //id='form' 
+                onSubmit={(e) => handleSubmit(e)}
+                className='form'>
                 <div >
-                    <label>Nombre:</label>
+                    <label className='titulo'>Nombre:</label>
                     <input
                     type='text'
                     value={input.name}
@@ -127,8 +135,9 @@ export function PokeCreated(){
 
                 </div>
                 <div>
-                    <label>Life:</label>
+                    <label className='titulo'>Life:</label>
                     <input
+                    required
                     type='number'
                     value={input.life}
                     name='life'
@@ -138,8 +147,9 @@ export function PokeCreated(){
                      <strong className='err'>{errors.life}</strong>
                 </div>
                 <div>
-                    <label>strength:</label>
+                    <label className='titulo'>strength:</label>
                     <input
+                    required
                     type='number'
                     value={input.strength}
                     name='strength'
@@ -149,8 +159,9 @@ export function PokeCreated(){
                      <strong className='err'>{errors.strength}</strong>
                 </div>
                 <div>
-                    <label>defense:</label>
+                    <label className='titulo'>defense:</label>
                     <input
+                    required
                     type='number'
                     value={input.defense}
                     name='defense'
@@ -160,8 +171,9 @@ export function PokeCreated(){
                     <strong className='err'>{errors.defense}</strong>
                 </div>
                 <div>
-                    <label>speed:</label>
+                    <label className='titulo'>speed:</label>
                     <input
+                    required
                     type='number'
                     value={input.speed}
                     name='speed'
@@ -171,8 +183,9 @@ export function PokeCreated(){
                     <strong className='err'>{errors.speed}</strong>
                 </div>
                 <div>
-                    <label>height:</label>
+                    <label className='titulo'>height:</label>
                     <input
+                    required
                     type='number'
                     value={input.height}
                     name='height'
@@ -182,8 +195,9 @@ export function PokeCreated(){
                     <strong className='err'>{errors.height}</strong>
                 </div>
                 <div>
-                    <label>weight:</label>
+                    <label className='titulo'>weight:</label>
                     <input
+                    required
                     type={'number'}
                     value={input.weight}
                     name='weight'
@@ -193,27 +207,33 @@ export function PokeCreated(){
                     <strong className='err'>{errors.weight}</strong>
                 </div>
                 <div>
-                    <label>Imagen:</label>
-                    <input
+                    <label className='titulo'>Imagen:</label>
+                    <input                    
                     type='img'
                     value={input.img}
                     name='img'
                     onChange={(e)=>handleChange(e)}
                     />
                 </div>
-                <select onChange={(e) => handleTypes(e)}>
-                    {types.map((t) => (
-                        <option value={t.name}>{t.name}</option>
-                    ))}
-                </select>                            
+                <div>
+                    <label className='titulo'>Types: </label>
+                    <select onChange={(e) => handleTypes(e)} >
+                        {types.map((t) => (
+                            <option required value={t.name}>{t.name}</option>
+                        ))}
+                    </select>  
+                </div>                          
                      
-                <button type='submit'>Crear</button>                                 
+                <button 
+                className='crearpoke'
+                type='submit'>Crear</button>                                 
                 
             </form> 
             {input.types.map(el =>
                 <div className='tiposForm'>
-                <strong>{el}</strong>
-                <button className='botonX' onClick={()=> handleDelete(el)}>X</button>
+                    <strong className='deteleiten'>{el}</strong>
+                    <button className='botonX'
+                    onClick={()=> handleDelete(el)}>X</button>
                 </div>
                 )}        
         </div> 

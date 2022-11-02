@@ -1,0 +1,29 @@
+.search{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-buscar{
+    
+    text-decoration: none;
+    border: solid blue;
+    background-color:#FFD700;
+    border-radius: 5px;
+    font-family: monospace;
+
+}
+
+.btn-buscar:hover {
+    border-color: #0000CD;
+    box-shadow: 0px 3px 20px 0px black;
+    transform: scale(1.2);
+    background-color: #FFD700;
+    color:#252422;
+    transition: all 0.3 ease-out;
+}
+
+.input{
+    border: 34em;   
+    font-family:monospace;
+
+}

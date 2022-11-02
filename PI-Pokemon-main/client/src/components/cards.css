@@ -1,0 +1,52 @@
+.cards{
+    width: 190px;
+    height: 254px;
+    border-radius: 20px;
+    background: #e1c443;
+    position: relative;
+    padding: 1.8rem;
+    border: 5px solid #272727;
+    transition: 0.5s ease-out;
+    overflow: visible;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 30px;
+    margin: 15px 10px; 
+    text-decoration: none;
+    opacity: 70%;
+}
+
+.carDetail{
+    color: black;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
+.carDetail img{
+    width: 120px;
+    height: 120px;
+}
+
+.imgCard{
+    margin: 0 auto;
+    margin-top: 10px;
+    align-items: center;
+}
+.textTitulo{
+    font-size: 30px;
+    font-weight: bold;
+    color: #252422;
+    text-decoration: none;
+    
+}
+.tipoName{
+    color: #252422;
+    text-decoration: none;
+}
+
+.cards:hover{
+    box-shadow: 0px 3px 20px 0px black;
+    font-family:'Courier New', Courier, monospace;
+    font-size: 30px;   
+    opacity: 1;
+    text-decoration: none;
+}

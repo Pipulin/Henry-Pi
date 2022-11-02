@@ -11,6 +11,8 @@ import {Link} from 'react-router-dom';
 import Card from './cards'
 import Paginado from './paginado';
 import SearchBar from './SearchBar';
+import HomePoke from '../components/pokeHome.png'
+import './Home.css'
 
 
 export default function Home (){
@@ -39,6 +41,7 @@ function handleClick(e){
         e.preventDefault();
         dispatch(getApiInfo())
     }  
+
 function handleFilteredTypes(e){
     e.preventDefault();
     dispatch(filterPokemonesByType(e.target.value))
@@ -66,84 +69,106 @@ function handleAtack(e){
 
 
     
-    return (    
-                          
-        <div id='inicio'>
-            <SearchBar/>  
-            <Link to = '/poke'>Crear Pokemon</Link>
-            <h1>Pokemons</h1>
-            
-            <button onClick = {(e) => {handleClick(e)}}>
-                Volver a cargar los Pokemones
-            </button>
-            
-        <div>
-            <select onChange={(e) =>{ handleFilterAzZa(e)}} >
-                <option value='asc'> Ascendente</option>
-                <option value='desc'> Descendente</option>
-            </select>  
-            <select onChange={(e) =>{ handleAtack(e)}} >
-                 <option value='mayor'>Mayor Ataque</option>  
-                 <option value='menor'>Menor Ataque</option>
-            </select> 
+    return (
+      <div id="inicio">
+        <div className="tituloHome">
+          <img src={HomePoke} alt="HomePoke" className="HomePoke" />
+        </div>
 
-            <select onChange={(e) =>{ handleFilterByCreated(e)}}>
-                <option value = 'api'>Existentes</option>
-                <option value= 'created'>Creados</option>
-                <option value= 'all'>Todos</option>
-            </select>
+        <SearchBar />
+        <Link to="/poke" className='crear'>Crear Pokemon</Link>
+        <br />
+        <button
+          className="btn-reload"
+          onClick={(e) => {
+            handleClick(e);
+          }}
+        >
+          Volver a cargar los Pokemones
+        </button>
 
-            <select            
-            className="tipefilter"            
-            onChange={(e) =>{ handleFilteredTypes(e)}}>
-               
-                    <option key='type' value ="type">
-                    Tipos
-                    </option>
-                    <option value="rock">Rock</option>
-                    <option value="bug">Bug</option>
-                    <option value="ghost">Ghost</option>
-                    <option value="steel">Steel</option>
-                    <option value="normal">Normal</option>
-                    <option value="fighting">Fighting</option>
-                    <option value="fire">Fire</option>
-                    <option value="flying">Flying</option>
-                    <option value="poison">Poison</option>
-                    <option value="ground">Ground</option>
-                    <option value="water">Water</option>
-                    <option value="grass">Grass</option>
-                    <option value="electric">Electric</option>
-                    <option value="shadow">Shadow</option>
-                    <option value="dragon">Dragon</option>
-                    <option value="dark">Dark</option>
-                    <option value="fairy">Fairy</option>
-                    <option value="unknown">Unknown</option>
-                    <option value="physic">Psychic</option>
-                    <option value="ice">Ice</option>
-            </select>
-            <Paginado
+        <div className='btn-filter'>
+          <select
+            className='azzaFilter'
+            onChange={(e) => {
+              handleFilterAzZa(e);
+            }}
+          >
+            <option value="asc"> Ascendente</option>
+            <option value="desc"> Descendente</option>
+          </select>
+          <select
+            className='updown'
+            onChange={(e) => {
+              handleAtack(e);
+            }}
+          >
+            <option value="mayor">Mayor Ataque</option>
+            <option value="menor">Menor Ataque</option>
+          </select>
+
+          <select
+            className='creados'
+            onChange={(e) => {
+              handleFilterByCreated(e);
+            }}
+          >
+            <option value="api">Existentes</option>
+            <option value="created">Creados</option>
+            <option value="all">Todos</option>
+          </select>
+
+          <select
+            className="tipefilter"
+            onChange={(e) => {
+              handleFilteredTypes(e);
+            }}
+          >
+            <option key="type" value="type">
+              Tipos
+            </option>
+            <option value="rock">Rock</option>
+            <option value="bug">Bug</option>
+            <option value="ghost">Ghost</option>
+            <option value="steel">Steel</option>
+            <option value="normal">Normal</option>
+            <option value="fighting">Fighting</option>
+            <option value="fire">Fire</option>
+            <option value="flying">Flying</option>
+            <option value="poison">Poison</option>
+            <option value="ground">Ground</option>
+            <option value="water">Water</option>
+            <option value="grass">Grass</option>
+            <option value="electric">Electric</option>
+            <option value="shadow">Shadow</option>
+            <option value="dragon">Dragon</option>
+            <option value="dark">Dark</option>
+            <option value="fairy">Fairy</option>
+            <option value="unknown">Unknown</option>
+            <option value="physic">Psychic</option>
+            <option value="ice">Ice</option>
+          </select>
+        </div>
+
+          <Paginado
             pokemonesPerPage={pokemonesPerPage}
             allPokemones={allPokemones.length}
-            paginado={paginado}//agregamos las props del componmemte paginado para que funcione.
-            />
-        {
-            currentPokemons?.map( (el) =>{           
-              return(
-                    <div>                       
-                        <Card className='card'                     
-                        id={el.id}
-                        name={el.name} 
-                        img={el.img} 
-                        type={el.types} 
-                        />
-                     
-                    </div>             
-               );
-            })
-        }     
-                                  
-            </div>
-        </div>           
-    )           
+            paginado={paginado} //agregamos las props del componmemte paginado para que funcione.
+          />
+          <div className='cardPoke'>
+          {currentPokemons?.map((el) => {
+            return (             
+                    <Card 
+                    id={el.id} 
+                    name={el.name} 
+                    img={el.img} 
+                    type={el.types} 
+                    />             
+            );
+          })}
+
+          </div>
+      </div>
+    );           
 }
 //export default Home;
