@@ -31,17 +31,17 @@ router.get('/recipes', async (req, res) =>{
 router.get('/diets', async (req, res) =>{
   
 const diet = [
+    "dairy Free",
     "gluten free",
-    "lacto-Vegetarian",
-    "ovo-Vegetarian",
+    "ketogenic",
+    "lacto ovo vegetarian",
+    "foodmap friendly",
+    "paleolithic",
     "vegan",
-    "paleo",
+    "pescetarian",
     "primal",
     "whole 30",
-    "low FODMAP",
-    "ketogenic",
-    "pescetarian",
-    "vegetarian"
+    
     
 ]
     diet.forEach(el =>{
@@ -62,7 +62,7 @@ router.post('/recipes', async (req, res)=>{
         name,
         image,
         summary,
-        healthyScore,
+        healthScore,
         dishTypes,
         steps,
         createdDB,
@@ -74,7 +74,7 @@ router.post('/recipes', async (req, res)=>{
         name,
         image,
         summary,
-        healthyScore,
+        healthScore,
         dishTypes,
         steps,
         createdDB ,

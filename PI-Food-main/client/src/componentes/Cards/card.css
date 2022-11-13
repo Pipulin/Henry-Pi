@@ -1,0 +1,56 @@
+.card{
+    border-radius: 20px;
+    background: #ffffff;
+    position: relative;    
+    border: 2px solid #ffffff;
+    transition: 0.5s ease-out;
+    overflow: visible;
+    font-family:monospace;
+    font-size: 15px;
+    margin: 15px 10px; 
+    text-decoration: none;
+    opacity: 70%;
+    padding: auto;
+    flex:50px;
+    max-width: 50%;
+}
+.cardDetail{
+    text-decoration: none;
+    color: black;
+    height: 100%;
+    display: grid;
+    place-content: center;
+
+}
+
+.imgCard{
+    margin: 0 auto;
+    margin-top: 10px;
+    align-items: center;
+    
+}
+.titlecard{
+    font-size: 110%;
+    font-weight: bold;
+    color: #252422;
+    text-decoration: none;
+}
+
+.dietsName{
+    color: #252422;
+    text-decoration: none;
+    align-items:stretch;
+}
+
+.card:hover{   
+   opacity: 2;
+   background: rgb(151, 145, 145);
+   box-shadow: 20px 20px 20px 0px black;
+   transform: scale(1.1);
+   transition: all 0.3 ease-out;
+
+    
+}
+.img{
+    border-radius: 10px;
+}

@@ -26,7 +26,7 @@ module.exports = (sequelize) => {
       allowNull: false,
     },
 
-    healthyScore:{
+    healthScore:{
       type: DataTypes.FLOAT
     },
 

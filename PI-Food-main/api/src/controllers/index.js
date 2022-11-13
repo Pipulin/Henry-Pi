@@ -6,22 +6,20 @@ const { Diet, Recipe } = require("../db");
 
 
 const getApiInfo = async() =>{
-    const apiWeb = await axios.get('https://api.spoonacular.com/recipes/complexSearch?apiKey=da706cb3c62c4f88a984b8fa8fb230bd&');
+    const apiWeb = await axios.get('https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=c2d7fd6c015f492588cb657a92d7fcdf&&addRecipeInformation=true');
     const apiInfo = await apiWeb.data.results.map(el =>{
      return{
             id: el.id,
             name: el.title,
             image: el.image,           
             summary: el.summary,
-            healthyScore: el.healthyScore,
+            healthScore: el.healthScore,
             dishTypes: el.dishTypes,
-            diets: el.vegetarian === true ? 
-            [...el.diets, 'vegetarian']
-            : el.diets,
-            steps: el.analyzedInstructions?.steps.map(el => {
+            diets:el.diets,            
+            steps: el.analyzedInstructions[0]?.steps.map(el => {
                 return {
-                    number: s.number, 
-                    step: s.step,
+                    number: el.number, 
+                    step: el.step,
                 }
             }),
         }

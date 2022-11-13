@@ -1,0 +1,33 @@
+.imgHome{
+    padding: 5%;
+}
+
+body{
+    background-image: url('https://img.freepik.com/foto-gratis/tabla-cortar-madera-rodeada-platos-pasta-e-ingredientes-mesa_23-2148246798.jpg?w=2000');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% 100%;
+    
+}
+
+.allfilter{
+    display: flex;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: 0px;
+    grid-column-gap: 0px;
+    grid-row-gap: 0px;
+    margin-top: 25px;
+    margin-bottom: 50px;
+    justify-content:space-around;
+      
+}
+.crear{
+    text-decoration: none;
+}
+
+.cardRecipe{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content:space-evenly;
+    
+}

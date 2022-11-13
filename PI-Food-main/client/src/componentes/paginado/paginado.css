@@ -1,0 +1,38 @@
+.paginado{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin: 0;
+    padding: 1rem;
+}
+
+.paginado li {
+    list-style: none;
+    display: flex;
+    flex-direction: row;
+    cursor: pointer; 
+    color: rgb(253, 253, 253);
+    background-color: rgb(29, 92, 29);
+    padding: 3px;
+    border-radius: 5px;
+    
+    
+  }
+
+  
+.paginado li :hover{
+    border-color: black;    
+    color: rgb(164, 31, 31);
+    box-shadow: 0px 3px 20px 0px black;
+    transform: scale(1.2);
+    transition: all 0.3 ease-out;
+
+}
+.paginado li .active{
+    color: brown;
+}
+   
+
