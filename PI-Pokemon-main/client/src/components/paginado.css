@@ -9,7 +9,7 @@
     padding: 1rem;
 }
 
-.paginado li {
+.paginado ul {
     list-style: none;
     display: flex;
     flex-direction: row;
