@@ -13,6 +13,23 @@ export function getRecipes(){
     }
 } 
 
+export function getNameRecipes(name){
+   /*  return async function (dispatch){
+        var json = await axios.get('http://localhost:3001/recipes?name' + name)
+        return dispatch({
+            type: 'GET_NAME',
+            payload: json.data
+        })
+
+    } */
+    return {
+        type: "GET_NAME",
+        payload: name,
+      };
+    }
+
+
+
 export function filterHealth(payload){
     return{
         type: 'FILTER_HEALTH',

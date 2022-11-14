@@ -12,6 +12,8 @@ import Card from '../Cards/card';
 import Paginado from '../paginado/paginado';
 import './home.css'
 import apihome from '../home/apihome.png'
+import SearchBar from '../SearchBar/searchBar';
+
 
 
 export default function Home (){
@@ -151,6 +153,9 @@ function handleCreated(e){
         allRecipes = {allRecipes.length}
         paginado = {paginado}
         />
+        </div>
+        <div className='buscador'>
+            <SearchBar/>
         </div>
 
         <div className='cardRecipe'>

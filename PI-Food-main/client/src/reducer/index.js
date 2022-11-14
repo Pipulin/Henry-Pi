@@ -18,6 +18,23 @@ function rootReducer (state=initialState, action){
                 }
 
 
+         case 'GET_NAME':
+          /* return{
+                 ...state,
+                 recipes: action.payload
+          }
+
+ */
+         let nombres = action.payload === ""? 
+           state.allRecipes : 
+           state.recipes.filter((e) =>
+              e.name.toLowerCase().includes(action.payload.toLowerCase())
+            );
+         return {
+              ...state,
+              recipes: nombres
+        };
+
          case 'FILTER_AZZA':            
              let sortA = action.payload ==='asc'? state.recipes.sort(function (a,b) {
                   if(a.name > b.name){
@@ -81,8 +98,7 @@ function rootReducer (state=initialState, action){
 
 
 
-         case 'FILTER_CREATED':
-             //const recipesAll = state.allRecipes;
+         case 'FILTER_CREATED':           
              const filterCreated = action.payload === 'created'? state.allRecipes.filter((e) => e.createdDB) : state.allRecipes.filter((e) => !e.createdDB)
 
              return{
