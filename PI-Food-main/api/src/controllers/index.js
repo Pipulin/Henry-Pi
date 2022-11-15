@@ -6,7 +6,7 @@ const { Diet, Recipe } = require("../db");
 
 
 const getApiInfo = async() =>{
-    const apiWeb = await axios.get('https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=69b5705ac8f145358d55c0b39830c495&&addRecipeInformation=true');
+    const apiWeb = await axios.get('https://api.spoonacular.com/recipes/complexSearch?number=100&apiKey=579b38950c8d4b73a844d3132c7ec749&&addRecipeInformation=true');
     const apiInfo = await apiWeb.data.results.map(el =>{
      return{
             id: el.id,
@@ -34,7 +34,7 @@ const getDbInfo = async () => {
     return await Recipe.findAll({
         includes:{
             model: Diet,
-            attributes: ['title'],
+            attributes: ['name'],
             through:{
                 attributes:[],
             }

@@ -31,11 +31,11 @@ module.exports = (sequelize) => {
     },
 
     dishTypes: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.STRING,
     },
 
     steps: {
-      type: DataTypes.ARRAY(DataTypes.STRING),
+      type: DataTypes.STRING,
     },
 
     createdDB: {

@@ -2,6 +2,7 @@
 const initialState = {
     recipes :[],
     allRecipes:[],
+    diets:[],
     
    
 }
@@ -18,13 +19,7 @@ function rootReducer (state=initialState, action){
                 }
 
 
-         case 'GET_NAME':
-          /* return{
-                 ...state,
-                 recipes: action.payload
-          }
-
- */
+         case 'GET_NAME':   
          let nombres = action.payload === ""? 
            state.allRecipes : 
            state.recipes.filter((e) =>
@@ -34,6 +29,14 @@ function rootReducer (state=initialState, action){
               ...state,
               recipes: nombres
         };
+
+
+        case 'GET_DIETS':
+          return{
+                ...state,
+                diets: action.payload
+          }
+
 
          case 'FILTER_AZZA':            
              let sortA = action.payload ==='asc'? state.recipes.sort(function (a,b) {
@@ -89,12 +92,17 @@ function rootReducer (state=initialState, action){
          case 'FILTER_BY_DIETS':
               const allRecipes = state.allRecipes;
               const filterByDiets = action.payload ==='none'? allRecipes:allRecipes.filter((e) =>
-                    e.diets.includes(action.payload)
+                    e?.diets?.includes(action.payload)
             );
               return{
                      ...state,
                      recipes: filterByDiets,
-            }       
+            }    
+            
+         case 'POST_RECIPES':
+          return{
+              ...state,
+          }
 
 
 

@@ -12,16 +12,27 @@ export function getRecipes(){
        }) 
     }
 } 
-
-export function getNameRecipes(name){
-   /*  return async function (dispatch){
-        var json = await axios.get('http://localhost:3001/recipes?name' + name)
+export function getDiets(){
+    return async function(dispatch){
+        var json = await axios.get('http://localhost:3001/diets');
         return dispatch({
-            type: 'GET_NAME',
+            type: 'GET_DIETS',
             payload: json.data
         })
+    }
+}
 
-    } */
+export function postRecipes(payload){
+    return async function (dispatch){
+        const post = await axios.post('http://localhost:3001/recipes', payload);
+        return post;
+        
+    }
+}
+
+
+
+export function getNameRecipes(name){   
     return {
         type: "GET_NAME",
         payload: name,
