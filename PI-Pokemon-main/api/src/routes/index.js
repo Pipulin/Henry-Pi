@@ -14,7 +14,7 @@ const router = Router();
 //***********FUNCIO NESSSSSSSSSS****************/
 const getApiInfo = async() =>{
 try {    
-    const apiResults = await axios.get('https://pokeapi.co/api/v2/pokemon')    
+    const apiResults = await axios.get('https://pokeapi.co/api/v2/pokemon?number=100')    
     const apiNext = await axios.get(apiResults.data.next)
     const allPokemons = apiResults.data.results.concat(apiNext.data.results);
     for (let p of allPokemons) {

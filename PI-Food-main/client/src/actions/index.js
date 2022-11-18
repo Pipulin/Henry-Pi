@@ -22,11 +22,20 @@ export function getDiets(){
     }
 }
 
+export function getDetail(id){
+    return async function(dispatch){
+        var json = await axios.get('http://localhost:3001/recipes/'+ id);
+        return dispatch({
+            type: 'GET_DETAILS',
+            payload: json.data
+        })
+    }
+}
+
 export function postRecipes(payload){
     return async function (dispatch){
-        const post = await axios.post('http://localhost:3001/recipes', payload);
-        return post;
-        
+      const post = await axios.post("http://localhost:3001/recipes", payload);
+      return post;
     }
 }
 

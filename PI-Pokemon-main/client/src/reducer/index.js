@@ -72,19 +72,19 @@ const initialState = {
             }
         case 'FILTER_AZZA':
             let sortedA= action.payload ==='asc'? state.pokemones.sort(function (a,b) {//.sort me va a ir comparando los dos valores.
-                if(a.name > b.name){
+                if(a.name.lowerCase() > b.name.lowerCase()){
                     return 1;
                 }
-                if(b.name > a.name){
+                if(b.name.lowerCase() > a.name.lowerCase()){
                     return -1
                 }
                 return 0;
             }) :
             state.pokemones.sort(function(a,b){
-                if(a.name > b.name){
+                if(a.name.lowerCase() > b.name.lowerCase()){
                     return -1;
                 }
-                if(b.name > a.name){
+                if(b.name.lowerCase() > a.name.lowerCase()){
                     return 1
                 }
                 return 0;

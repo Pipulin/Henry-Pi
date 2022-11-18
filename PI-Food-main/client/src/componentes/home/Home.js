@@ -78,7 +78,7 @@ function handleCreated(e){
         <img src={apihome} className='imgHome'></img>
       </div>
 
-      <Link to="/recipes" className='crear'>Crear un Receta</Link>
+      <Link to="/recipe" className='crear'>Crear un Receta</Link>
       <br />
       <button
         className="btnReload"

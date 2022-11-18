@@ -1,0 +1,61 @@
+.volver{
+    position: absolute;
+    right: 85%;
+    top: 2%;    
+    border-radius: 35px;
+    padding: 20px;
+    color:  rgb(253, 255, 251);
+    background-color: rgb(23, 151, 108);
+    font-size: medium;
+    font-family:Verdana, Geneva, Tahoma, sans-serif; 
+    box-shadow: 3px 3px 3px 2px black; 
+    font-style: oblique;
+    font-family: Arial, Helvetica, sans-serif; 
+    
+}
+.volver:hover{
+    background-color:rgb(9, 8, 8);
+    cursor: pointer;
+    color: rgb(9, 135, 101);
+}
+
+.loadingg{
+    font-size: 40px;
+    color: white;
+    font-family: fantasy;
+    position: absolute;
+    top: 35%;
+    left: 45%;
+}
+
+.detalles{
+    background-color: white;
+    background-size: cover;
+    border-radius: 10px;
+    border: solid  black;
+}
+.titulo{
+    font-style: italic;
+    margin-top: 10px;
+    padding-top: 15px;
+    color: rgb(20, 134, 96);
+}
+.imagenDetails{
+    border-radius: 10px;
+    box-shadow: 0px 3px 3px 3px black;
+}
+.resumen{
+    padding-left: 40px;
+    padding-right: 40px;
+    font-style:oblique;
+    text-align: justify;
+   
+}
+.detallesInf{
+    font-style: italic;
+    text-align: center;
+}
+.steps{
+    font-style: oblique;
+    color: rgb(26, 151, 34);
+}

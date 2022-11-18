@@ -92,14 +92,17 @@ router.post('/recipes', async (req, res)=>{
 router.get('/recipes/:id', async (req, res) =>{
     const id = req.params.id;
     const totalRecipes = await getAllRecipes()
+try{
     if(id){
-       const recipesId = await totalRecipes.filter(el => el.id == id) 
+       const recipesId = totalRecipes.filter(el => el.id == id) 
        recipesId.length?
        res.status(200).json(recipesId): 
        res.status(400).send('Receta no encontrada')
 
     }
-})
+}catch(error){
+    res.status(400).send({error: error.message})
+}})
 
 
 

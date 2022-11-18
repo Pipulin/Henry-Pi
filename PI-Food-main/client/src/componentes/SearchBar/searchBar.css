@@ -1,0 +1,32 @@
+.search{
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.btn-buscar{
+    
+    text-decoration: none;
+    border: solid rgb(37, 128, 102);
+    background-color:#000000;
+    border-radius: 2px;
+    font-family: monospace;
+    color: white;
+
+}
+
+.btn-buscar:hover {
+    border-color:#000000;
+    box-shadow: 0px 3px 20px 0px black;
+    transform: scale(1.2);
+    background-color: rgb(37, 128, 102);    
+    transition: all 0.3 ease-out;
+    color: white;
+}
+
+.input{
+    border: 34em;   
+    font-family:monospace;
+    background-color: darkgrey;
+    
+
+}

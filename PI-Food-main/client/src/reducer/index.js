@@ -3,6 +3,7 @@ const initialState = {
     recipes :[],
     allRecipes:[],
     diets:[],
+    details:[],
     
    
 }
@@ -36,23 +37,31 @@ function rootReducer (state=initialState, action){
                 ...state,
                 diets: action.payload
           }
+          
+
+        case 'GET_DETAILS':
+          return{
+            ...state,
+            details: action.payload
+
+          }
 
 
          case 'FILTER_AZZA':            
-             let sortA = action.payload ==='asc'? state.recipes.sort(function (a,b) {
-                  if(a.name > b.name){
+              let sortA = action.payload ==='asc'? state.recipes.sort(function (a,b) {
+                  if(a.name.toLowerCase() > b.name.toLowerCase()){
                       return 1;
                         }
-                  if(b.name > a.name){
+                  if(b.name.toLowerCase() > a.name.toLowerCase()){
                             return -1
                         }
                         return 0;
              }) :
              state.recipes.sort(function(a,b){
-                   if(a.name > b.name){
+                   if(a.name.toLowerCase() > b.name.toLowerCase()){
                             return -1;
                         }
-                   if (b.name > a.name) {
+                   if (b.name.toLowerCase() > a.name.toLowerCase()) {
                      return 1;
                    }
                         return 0;
@@ -61,8 +70,10 @@ function rootReducer (state=initialState, action){
                  return {
                         ...state,
                         recipes: sortA
-                    }
+                    } 
                     
+
+
          case 'FILTER_HEALTH':
              let heal = action.payload ==='low'? state.recipes.sort(function (a,b) {        
                   if (a.healthScore < b.healthScore) {
@@ -113,9 +124,7 @@ function rootReducer (state=initialState, action){
                     ...state,
                     recipes: action.payload === 'all'? state.allRecipes : filterCreated
              }
-
-
-         
+        
 
 
 

@@ -4,30 +4,31 @@ import { Link, useHistory } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getDiets, postRecipes } from "../../actions";
 
+import './recipeCreated.css'
+
 
 
 function validate(input){
     let errors={};
-    let regexSkill = /^[0-9_-]{1,2}$/;
+   
     if(!input.name){
         errors.name = 'El nombre es requerido'
     }
-    if(!regexSkill.test(input.summary)){        
-        errors.summary = 'Resumen de tu receta'
+    if(!input.summary){        
+        errors.summary = 'Resumen de tu receta requerido'
     }
-    if(!regexSkill.test(input.healthyScore)){        
-        errors.healthyScore = 'Elije un numero valido entre 1-100'
+    if(input.healthScore > 100 ||input.healthScore < 0){        
+       errors.healthScore = 'Elije un numero valido entre 1-100'
     }
-    if(!regexSkill.test(input.dishTypes)){        
+    if(!input.dishTypes){        
         errors.dishTypes = 'Que tipo de plato es?'
 
-    }  
-    
-    if(!regexSkill.test(input.steps)){        
+    }      
+    if(!input.steps){        
         errors.steps = 'Describe los pasos de tu receta'
     }
 
-    if(!regexSkill.test(input.diets)){        
+    if(!input.diets){        
         errors.diets = 'Elije uno o mas tipos de dieta '
     }    
     return errors;   
@@ -47,7 +48,7 @@ export function RecipeCreate(){
         name: "", 
         image:"",      
         summary:"",
-        healthyScore: 0,
+        healthScore: "",
         dishTypes:"",
         steps:"",         
         diets: [],
@@ -61,7 +62,7 @@ function handleSubmit(e){
         name: "",
         image: "",
         summary:"",
-        healthyScore: "",
+        healthScore: "",
         dishTypes:"",
         steps:"",        
         diets: [],
@@ -93,7 +94,7 @@ function handleSelect(e){
 function handleDelete(e){
     setInput({
         ...input,
-        diets: input.diets.filter(t => t !==e )
+        diets: input.diets.filter(el => el !==e )
     })
 }
 
@@ -101,113 +102,116 @@ function handleDelete(e){
     useEffect(() => {
         dispatch(getDiets())
     }, [dispatch]);
-    return(
-        <div className="allForm">
-            <div className="home">
-                <Link to='/home'>
-                    <button className="home">Home</button>
-                </Link>
-            </div>
-              <h1 
-                className="title">Crea tu Receta Favorita
-              </h1>
-            <form 
-            onSubmit={(e) => handleSubmit(e)}
-            className="formulario">
-              <div>
-                <label className='titulo'>Nombre:</label>
-                <input
-                    type='text'
-                    value={input.name}
-                    name='name'                   
-                    onChange={handleChange}
-                    />
-                <strong className='err'>{errors.name}</strong>
-              </div>
-              <div>
-                <label className='image'>Imagen:</label>
-                <input
-                    type='url'
-                    value={input.image}
-                    name='image'                    
-                    onChange={handleChange}
-                    />
-                    
-              </div>
-              <div>
-                <label className='summary'>Summary:</label>
-                <input
-                    type='text'
-                    value={input.summary}
-                    name='summary'                    
-                    onChange={handleChange}
-                    />
-                <strong className='err'>{errors.summary}</strong>
-              </div>
-              <div>
-                <label className='healthyScore'>HealthyScore:</label>
-                <input
-                    type='number'
-                    value={input.healthyScore}
-                    name='healthyScore'                   
-                    onChange={handleChange}
-                    />
-                <strong className='err'>{errors.healthyScore}</strong>
-              </div>
-              <div>
-                <label className='dishTypes'>DishTypes:</label>
-                <input
-                    type='text'
-                    value={input.dishTypes}
-                    name='dishTypes'                    
-                    onChange={handleChange}
-                    />
-                <strong className='err'>{errors.dishTypes}</strong>
-              </div>
-              <div>
-                <label className='steps'>Steps:</label>
-                <textarea
-                    type='text'
-                    value={input.steps}
-                    name='steps'                    
-                    onChange={handleChange}
-                    />
-                <strong className='err'>{errors.steps}</strong>
-              </div>
-
-              <div className="selectDiets">
-              <select onChange={(e)=>handleSelect(e)}>
-                    {diets.map((d) =>(
-                        <option required value={d.name}>{d.name}</option>
-                    ))}
-              </select>
-              </div> 
-                
-                 
-
-
-              <button
-              className="boton" 
-              type='submit'>Crear</button>
-
-
-            </form>
-            
-            {input.diets.map(el => 
-                    <div>
-                        <strong 
-                        className="mapDiet">{el}</strong> 
-                        <button 
-                        onClick={()=> handleDelete(el)}
-                        className="delete">X</button>
-                    </div>
-               )}
-
-
-
-
+    return (
+      <div className="allForm">
+        <div>
+          <Link to="/home">
+            <button className="home">Home</button>
+          </Link>
         </div>
-    )
+        <h1 className="title">Crea tu Receta Favorita</h1>
+        <form onSubmit={(e) => handleSubmit(e)} className="formulario">
+          <div>
+            <label className="titleform">Nombre:</label>
+            <input
+              type="text"
+              value={input.name}
+              name="name"
+              onChange={handleChange}
+              required
+            />
+            <strong className="err">{errors.name}</strong>
+          </div>
+          <div>
+            <label className="titleform">Imagen:</label>
+            <input
+              type="url"
+              value={input.image}
+              name="image"
+              onChange={handleChange}
+              required
+            />
+          </div>
+          <div>
+            <label className="titleform">Summary:</label>
+            <input
+              type="text"
+              value={input.summary}
+              name="summary"
+              onChange={handleChange}
+              required
+            />
+            <strong className="err">{errors.summary}</strong>
+          </div>
+          <div>
+            <label className="titleform">HealthScore:</label>
+            <input
+              type="number"
+              value={input.healthScore}
+              name="healthScore"
+              onChange={handleChange}
+              required
+            />
+            <strong className="err">{errors.healthScore}</strong>
+          </div>
+          <div>
+            <label className="titleform">DishTypes:</label>
+            <input
+              type="text"
+              value={input.dishTypes}
+              name="dishTypes"
+              onChange={handleChange}
+              required
+            />
+            <strong className="err">{errors.dishTypes}</strong>
+          </div>
+          <div>
+            <label className="titleform">Steps:</label>
+            <textarea
+              type="text"
+              value={input.steps}
+              name="steps"
+              onChange={handleChange}
+              required
+            />
+            <strong className="err">{errors.steps}</strong>
+          </div>
+
+          <div className="selectDiets">
+            <select onChange={(e) => handleSelect(e)}>
+              {diets.map((d) => (
+                <option required value={d.name}>
+                  {d.name}
+                </option>
+              ))}
+            </select>
+          </div>
+
+          <button
+            disabled={
+              errors.name ||
+              errors.summary ||
+              errors.healthScore ||
+              errors.dishTypes ||
+              errors.steps
+            }
+            className="boton"
+            type="submit"
+          >
+            Crear
+          </button>
+        </form>
+
+        {input.diets.map((el) => (
+          <div>
+            <strong className="mapDiet">{el}</strong>
+            <button onClick={() => handleDelete(el)} className="delete">
+              X
+            </button>
+          </div>
+        ))}
+      </div>
+    );
 }
 
 export default RecipeCreate;

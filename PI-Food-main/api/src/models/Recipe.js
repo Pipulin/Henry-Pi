@@ -18,24 +18,24 @@ module.exports = (sequelize) => {
     },
     
     image: {
-      type: DataTypes.STRING
+      type: DataTypes.TEXT
      
     },
     summary: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
       allowNull: false,
     },
 
     healthScore:{
-      type: DataTypes.FLOAT
+      type: DataTypes.INTEGER
     },
 
     dishTypes: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
 
     steps: {
-      type: DataTypes.STRING,
+      type: DataTypes.TEXT,
     },
 
     createdDB: {

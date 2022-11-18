@@ -19,15 +19,91 @@ body{
     margin-top: 25px;
     margin-bottom: 50px;
     justify-content:space-around;
+    
       
 }
 .crear{
+   
     text-decoration: none;
+    border: solid rgb(0, 0, 0);
+    background-color:#46ce83;
+    border-radius: 5px;
+    font-family: monospace;
+    position: relative;
+    font-family: 'Gill Sans';
+    color: rgb(8, 21, 33);
 }
+.crear:hover {
+    border-color: #34e375;
+    box-shadow: 0px 3px 20px 0px black;
+    transform: scale(1.2);
+    background-color: #000000;
+    color:#fffefd;
+    transition: all 0.3 ease-out;
+}
+
+.btnReload{
+    text-decoration: none;
+    border: solid rgb(0, 0, 0);
+    background-color:#46ce83;
+    border-radius: 5px;
+    font-family: monospace;
+    position: relative;
+    font-family: 'Gill Sans';
+    color: rgb(8, 21, 33);
+    margin-top: 5px;
+}
+.btnReload:hover {
+    border-color: #34e375;
+    box-shadow: 0px 3px 20px 0px black;
+    transform: scale(1.2);
+    background-color: #000000;
+    color:#fffefd;
+    transition: all 0.3 ease-out;
+}
+
 
 .cardRecipe{
     display:flex;
     flex-wrap: wrap;
-    justify-content:space-evenly;
-    
+    justify-content:space-evenly;    
+}
+
+
+.azza{
+    text-decoration: none;
+    padding: 3px;
+    background-color:rgb(32, 126, 82);
+    border-radius: 5px;
+    border-color: black;
+    font-family: monospace;
+    color: white;
+}
+.created{
+    text-decoration: none;
+    padding: 3px;
+    background-color:rgb(32, 126, 82);
+    border-radius: 5px;
+    border-color: black;
+    font-family: monospace;
+    color: white;
+    margin-bottom: 5px;
+}
+.health{
+    text-decoration: none;
+    padding: 3px;
+    background-color:rgb(32, 126, 82);
+    border-radius: 5px;
+    border-color: black;
+    font-family: monospace;
+    color: white;
+}
+.filterbyDiets{
+    text-decoration: none;
+    padding: 3px;
+    background-color:rgb(32, 126, 82);
+    border-radius: 5px;
+    border-color: black;
+    font-family: monospace;
+    color: white;
 }
